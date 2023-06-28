@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <title>Sistema de Entidad con Firebase y Autenticación de Google</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1firebase-firestore.js"></script>
+    <script src="js/init.js"></script>
+    <script type="module" src="cmp/mi-footer.js"></script>
+    <script type="module" src="cmp/mi-progreso.js"></script>
+    <script type="module" src="cmp/mi-nav.js"></script>
+    <script src="js/botongoogle.js"></script>
+    <script type="module" src="js/"></script> 
+    <link rel="stylesheet" href="css/estilos.css">
+
+</head>
+<body>
+    <h1>Sistema de Entidad con Firebase y Autenticación de Google</h1>
+
+    <!-- Formulario para agregar una silla -->
+    <h2>Agregar Silla</h2>
+    <label for="modelo">Modelo:</label>
+    <input type="text" id="modelo" required>
+    <br>
+    <label for="color">Color:</label>
+    <input type="text" id="color" required>
+    <br>
+    <label for="material">Material:</label>
+    <input type="text" id="material" required>
+    <br>
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" required>
+    <br>
+    <button onclick="agregarSilla()">Agregar</button>
+
+    <!-- Operaciones de la entidad "Silla" -->
+    <h2>Eliminar Silla</h2>
+    <label for="idEliminar">ID de Silla:</label>
+    <input type="text" id="idEliminar" required>
+    <button onclick="eliminarSilla(document.getElementById('idEliminar').value)">Eliminar</button>
+
+    <h2>Buscar Silla</h2>
+    <label for="modeloBuscar">Modelo:</label>
+    <input type="text" id="modeloBuscar" required>
+    <button onclick="buscarSilla()">Buscar</button>
+
+    <h2>Modificar Silla</h2>
+    <label for="idModificar">ID de Silla:</label>
+    <input type="text" id="idModificar" required>
+    <br>
+    <label for="nuevoPrecio">Nuevo Precio:</label>
+    <input type="text" id="nuevoPrecio" required>
+    <br>
+    <button onclick="modificarSilla(document.getElementById('idModificar').value, document.getElementById('nuevoPrecio').value)">Modificar</button>
+
+    <!-- Mensaje de notificación -->
+    <div id="mensaje" style="display: none;"></div>
+
+    <!-- Botón de inicio de sesión de Google -->
+    <h2>Autenticación de Google</h2>
+    <button onclick="googleSignIn()">Iniciar sesión con Google</button>
+
+ <form name="forma">
+    <mi-nav></mi-nav>
+    <header>
+      <h1>Sesión</h1>
+      <div class="herramientas">
+        <button
+          type="button"
+          name="terminarSesión">
+          Terminar Sesión
+        </button>
+      </div>
+    </header>
+    <figure>
+      <img id="avatar" src=""
+        alt="Avatar">
+    </figure>
+    <p>
+      <label>
+        Email
+        <output name="email">
+          <mi-progreso>
+          </mi-progreso>
+        </output>
+      </label>
+    </p>
+    <p>
+      <label>
+        Nombre
+        <output name="nombre">
+          <mi-progreso>
+          </mi-progreso>
+        </output>
+      </label>
+    </p>
+    <mi-footer></mi-footer>
+  </form>
+  <script type="module"
+    src="js/CtrlSesion.js">
+    </script>
+
+
+</body>
+</html>
