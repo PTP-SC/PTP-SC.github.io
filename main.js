@@ -6,7 +6,7 @@ import { tieneRol, cargaRoles } from "./js/seguridad.js";
 import * as MiNav from "./cmp/mi-nav.js";
 import * as MiFooter from "./cmp/mi-footer.js";
 import * as MiProgreso from "./cmp/mi-progreso.js";
-
+import * as ctrlSesion from "./js/CtrlSesion.js";
 // Ejemplo de uso de la clase MiNav
 const miNav = new MiNav.MiNav();
 document.body.appendChild(miNav);
