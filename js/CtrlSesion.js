@@ -55,4 +55,22 @@ import {
       iniciaSesión();
     }
   }
-  
+  // Obtén los valores de los campos de correo electrónico y contraseña
+const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+
+// Utiliza el método signInWithEmailAndPassword para iniciar sesión
+firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // El inicio de sesión fue exitoso
+    const user = userCredential.user;
+    console.log('Usuario ha iniciado sesión:', user);
+    // Realiza las acciones adicionales que desees después del inicio de sesión exitoso
+  })
+  .catch((error) => {
+    // Ocurrió un error durante el inicio de sesión
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log('Error en el inicio de sesión:', errorCode, errorMessage);
+    // Maneja el error o muestra un mensaje de error al usuario
+  });
